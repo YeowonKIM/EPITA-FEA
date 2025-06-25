@@ -52,31 +52,40 @@ export const LoginForm = () => {
 
     return (
         <React.Fragment>
+            {/* email */}
             <label className='email'>email</label>
             <input
                 type='text'
                 className='email'
                 onChange={(e) => setEmail(e.target.value)}
             ></input>
-            <label className='password'>Password</label>
-            <input
-                type={showPass ? "text" : "password"}
-                className='password'
-                onChange={(e) => setPassword(e.target.value)}
-            ></input>
-            <span onClick={(e) => togglePassword(e)} style={{cursor: "pointer"}}>
-                <span>
-                    {showPass ? (
-                        <FontAwesomeIcon icon={faEye} className='customIcon' />
-                    ) : (
-                        <FontAwesomeIcon icon={faEyeSlash} className='customIcon' />
-                    )
-                }
+
+            {/* password */}
+            <div style={{ position: "relative" }}>
+                <label className='password' >Password</label>
+                <input
+                    type={showPass ? "text" : "password"}
+                    className='password'
+                    onChange={(e) => setPassword(e.target.value)}
+                ></input>
+                <span onClick={(e) => togglePassword(e)} style={{cursor: "pointer"}}>
+                    <span>
+                        {showPass ? (
+                            <FontAwesomeIcon icon={faEye} className='customIcon' />
+                        ) : (
+                            <FontAwesomeIcon icon={faEyeSlash} className='customIcon' />
+                        )
+                    }
+                    </span>
                 </span>
-            </span>
+            </div>
+
+            {/* submit */}
             <button className='submit' onClick={(e) => authentication(e)}>
                 sumbit
             </button>
+
+            {/* Message */}
             <span style={{display: "flex", justifyContent: "center", marginTop: "20px"}}>
                 {message}
             </span>

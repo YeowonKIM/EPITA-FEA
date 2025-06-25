@@ -6,10 +6,12 @@ import MovieDetailsPage from "./pages/MovieDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const App = () => {
   return (
     <>
+    <ThemeProvider>
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<LoginPage />} />
@@ -22,6 +24,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>
+    </ThemeProvider>
     </>
   );
 };

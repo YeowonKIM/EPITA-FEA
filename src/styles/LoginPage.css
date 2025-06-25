@@ -3,13 +3,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../assets/Login_Background.jpeg");
+  /* background-image: url("../assets/Login_Background.jpeg");
   background-size: cover;
-  background-position: center center;
+  background-position: center center; */
 }
 
-#loginButton, #registerButton{
-    color: white;
+#loginButton,
+#registerButton {
+  transition: all 0.5s ease;
+}
+
+.dark-mode #loginButton,
+.dark-mode #registerButton {
+  color: white;
+}
+
+.light-mode #loginButton,
+.light-mode #registerButton {
+  color: #024b4d; 
 }
 
 .login-wrapper {
@@ -99,7 +110,7 @@
   border: none;
   border-radius: 20px;
   margin-top: 23px;
-  background-color: #055d5d;
+  background-color: #41888c;
 }
 
 form#registerform {
@@ -150,3 +161,63 @@ form,
 button {
   cursor: pointer;
 }
+
+/* Dark mode */
+.dark-mode {
+  background-color: #1e1e2f; 
+  color: #f0f0f0; 
+}
+
+.dark-mode .login-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 30, 47, 1) 0%,
+    rgba(50, 60, 80, 0.85) 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  color: #f0f0f0;
+}
+
+/* Light mode */
+.light-mode {
+  background-color: #f6f8fa;
+  color: #222; 
+}
+
+.light-mode .login-wrapper {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e7f0f7 60%,
+    #d8e3ea 100%
+  );
+  color: #222;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode button */
+.light-mode .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.1); /* light glow on hover */
+  transform: scale(1.05);
+}
+
+/* Dark mode button */
+.dark-mode .theme-toggle {
+  color: #b0dcdc;
+  background-color: rgba(239, 232, 232, 0.1); /* light glow on hover */
+  transform: scale(1.05);
+}
+

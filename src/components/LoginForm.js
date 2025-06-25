@@ -4,8 +4,11 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
 import { movieApi } from '../constants/axios';
 import { movieRequests, userRequests } from '../constants/requests';
 import { useNavigate } from 'react-router-dom';
+import useAppStateContext from '../hooks/useAppStateContext';
 
 export const LoginForm = () => {
+    const { dispatch } = useAppStateContext()
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [showPass, setShowPass] = useState(false)
@@ -31,7 +34,14 @@ export const LoginForm = () => {
                 password
             }).then((response) => {
                 console.log(response)
-                localStorage.setItem("user", JSON.stringify({...response.data, isAuthenticated: true}))
+                dispatch({
+                    type: "Login",
+                    payload: {
+                        token: response.data.token,
+                        email,
+                        username: response.data.username
+                    }
+                })
                 navigate("/home")
             }).catch(error => {
                 console.log(error)

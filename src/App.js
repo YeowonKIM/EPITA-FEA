@@ -4,18 +4,20 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route>
+        <Route element={<PublicRoute />}>
           <Route path="/login" element={<LoginPage />} />
         </Route>
-        <Route>
+        <Route element={<PrivateRoute />}> 
           <Route path="/home" element={<HomePage />} />
         </Route>
-        <Route>
+        <Route element={<PrivateRoute />}>
           <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />}/>

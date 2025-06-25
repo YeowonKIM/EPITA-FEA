@@ -14,12 +14,12 @@ const LoginPage = () => {
 
     // Login form - sliding animation
     const loginProps = useSpring({
-        left: registerFormStatus ? -500 : 0,
+        left: registerFormStatus ? -600 : 0,
     });
 
     // Register form - sliding animation
     const registerProps = useSpring({
-        left: registerFormStatus ? 0 : 500,
+        left: registerFormStatus ? 0 : 600,
     });
 
     // Login button - border animation

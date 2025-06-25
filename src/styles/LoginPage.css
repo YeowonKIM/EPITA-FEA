@@ -146,7 +146,7 @@ form,
 .inputs-container {
   display: flex;
   justify-content: center;
-  column-gap: 10px;
+  column-gap: 25px;
 }
 
 .input-container {
@@ -180,7 +180,7 @@ button {
 
 /* Light mode */
 .light-mode {
-  background-color: #f6f8fa;
+  background-color: #ecf7f6;
   color: #222; 
 }
 
@@ -216,8 +216,21 @@ button {
 
 /* Dark mode button */
 .dark-mode .theme-toggle {
-  color: #b0dcdc;
+  color: #eafbfb;
   background-color: rgba(239, 232, 232, 0.1); /* light glow on hover */
   transform: scale(1.05);
 }
 
+/* Light mode input field style */
+.light-mode .form-group input,
+.light-mode .form-group select {
+  background: #faffff;          
+  color: #333;                
+  border: 0.1px solid #ccc;       
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+/* Placeholder text color in light mode */
+.light-mode .form-group input::placeholder {
+  color: #999;
+}

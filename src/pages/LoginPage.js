@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import '../styles/LoginPage.css';
 import LoginForm from "../components/LoginForm";
-import { RegisterForm } from "../components/RegisterForm";
+import RegisterForm from "../components/RegisterForm";
 
 const LoginPage = () => {
     // Controls which form (Login, register) visible

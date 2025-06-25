@@ -29,15 +29,15 @@ export const LoginForm = () => {
         <React.Fragment>
             <label className='email'>email</label>
             <input
-            type='text'
-            className='email'
-            onChange={(e) => setEmail(e.target.value)}
+                type='text'
+                className='email'
+                onChange={(e) => setEmail(e.target.value)}
             ></input>
             <label className='password'>Password</label>
             <input
-            type={showPass ? "test" : "password"}
-            className='password'
-            onChange={(e) => setPassword(e.target.value)}
+                type={showPass ? "text" : "password"}
+                className='password'
+                onChange={(e) => setPassword(e.target.value)}
             ></input>
             <span onClick={(e) => togglePassword(e)} style={{cursor: "pointer"}}>
                 <span>

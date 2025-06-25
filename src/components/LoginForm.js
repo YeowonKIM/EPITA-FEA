@@ -1,13 +1,18 @@
 import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { movieApi } from '../constants/axios';
+import { movieRequests, userRequests } from '../constants/requests';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
-    const {email, setEmail} = useState("")
-    const {password, setPassword} = useState("")
-    const {showPass, setShowPass} = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [showPass, setShowPass] = useState(false)
 
-    const {message, setMessage} = useState("")
+    const navigate = useNavigate()
+
+    const [message, setMessage] = useState("")
 
     const togglePassword = (event) => {
         event.preventDefault();
@@ -21,7 +26,17 @@ export const LoginForm = () => {
         if (!email || !password) {
             setMessage("Please fill all required fields")
         } else {
-            // make an http request to the backend
+            movieApi.post(userRequests.login, {
+                email,
+                password
+            }).then((response) => {
+                console.log(response)
+                localStorage.setItem("user", JSON.stringify({...response.data, isAuthenticated: true}))
+                navigate("/home")
+            }).catch(error => {
+                console.log(error)
+                setMessage(error.response.data.message)
+            })
         }
     }
 
